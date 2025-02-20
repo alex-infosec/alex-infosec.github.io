@@ -2,8 +2,9 @@ title: "Alex's Infosec Blog"
 description: "Documenting my cybersecurity journey."
 baseurl: "" 
 url: "https://alex-infosec.github.io"
-remote_theme: "jekyll/minima@latest"  # Explicitly set the theme version
-
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
 # Markdown and Highlighter
 markdown: kramdown
 highlighter: rouge
