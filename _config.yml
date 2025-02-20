@@ -1,0 +1,7 @@
+title: "Alex's Infosec Blog"
+description: "Documenting my cybersecurity journey."
+baseurl: ""
+url: "https://alex-infosec.github.io"
+theme: minima
+markdown: kramdown
+paginate: 10
