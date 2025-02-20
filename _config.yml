@@ -2,7 +2,7 @@ title: "Alex's Infosec Blog"
 description: "Documenting my cybersecurity journey."
 baseurl: "" 
 url: "https://alex-infosec.github.io"
-remote_theme: pages-themes/minimal@v0.2.0
+remote_theme: pages-themes/slate@v0.2.0
 
 # Markdown and Highlighter
 markdown: kramdown
