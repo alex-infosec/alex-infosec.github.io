@@ -2,46 +2,7 @@ title: "Alex's Infosec Blog"
 description: "Documenting my cybersecurity journey."
 baseurl: "" 
 url: "https://alex-infosec.github.io"
-remote_theme: jekyll-theme-cayman
-
-# Markdown and Highlighter
+theme: jekyll-theme-cayman
+paginate: 10
 markdown: kramdown
 highlighter: rouge
-
-# Pagination and Permalink
-paginate: 10
-paginate_path: "/page:num"
-permalink: pretty
-
-# Directories
-source: .
-destination: ./_site
-layouts_dir: _layouts
-data_dir: _data
-includes_dir: _includes
-sass:
-  sass_dir: _sass
-
-# Collections
-collections:
-  posts:
-    output: true
-
-# Exclude files you don’t want to publish
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/
-  - README.md
-
-# Plugins (leave empty if not using any custom plugins)
-plugins: 
-  - jekyll-remote-theme
-
-# Kramdown Settings
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  toc_levels: [1, 2, 3, 4, 5, 6]
