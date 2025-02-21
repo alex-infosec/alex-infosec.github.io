@@ -61,8 +61,8 @@ You can create multi-paragraph list items by indenting the
     paragraphs by 4 spaces or 1 tab
 
 ### Links  
-This is an  [example link] (https://example.com/)
-This is an [example link] (https://example.com/ “With a Title”)
+This is an  [example link](https://example.com/)
+This is an [example link](https://example.com/ “With a Title”)
 
 #### Reference-style Links  
 Reference-style links allow you to refer to your links by names, which you define elsewhere in your document
