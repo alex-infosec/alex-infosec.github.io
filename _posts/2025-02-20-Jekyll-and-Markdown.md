@@ -35,3 +35,70 @@ This is useful if you or I want to learn from other Jekyll blogs or understand f
 ## Basics  
 
 ### A First Level Header
+
+A First Level Header
+bash
+Copy
+Edit
+
+### A Second Level Header  
+A Second Level Header
+shell
+Copy
+Edit
+
+### Emphasis and Strong Emphasis  
+Words *are emphasized*
+Words _are emphasized also_
+Words __are strongly emphasized__
+
+bash
+Copy
+Edit
+
+### Lists and Paragraphs  
+You can create multi-paragraph list items by indenting the         
+    paragraphs by 4 spaces or 1 tab
+
+### Links  
+This is an  [example link] (https://example.com/)
+This is an [example link] (https://example.com/ “With a Title”)
+
+#### Reference-style Links  
+Reference-style links allow you to refer to your links by names, which you define elsewhere in your document
+
+I get 10 times more traffic from [Google][1] than from [Yahoo][2]
+[1]: https://google.com/             “Google”
+[2]: http://search.yahoo.com/    “Yahoo Search”
+
+
+### Images  
+**Inline:**  
+
+
+markdown
+Copy
+Edit
+
+**Reference style:**  
+![alt text][id]
+[id]: /path/to/img.jpg "Title"
+
+
+### Blockquotes  
+You have the option of
+
+<blockquote> <p> paragraph
+
+### Special Characters  
+If you want to use `&` as literal characters, you have to use `&lt;` and `&amp;`. This is important for links that often have `&amp;` ampersands.  
+
+Example:  
+4 &lt; 5 translates as 4 '&'l't';'' 5
+
+
+
+
+
+
+
