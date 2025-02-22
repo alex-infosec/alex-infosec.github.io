@@ -234,3 +234,48 @@ Also used for:
 
 ## AWS Security
 ![AWS Shared Security Model](/assets/img/AWS Shared Security Model.png)
+
+### Shared Responsibility to model
+Customers are responsible for the security of everything that they create and put in the AWS Cloud.
+*"When using AWS services, you, the customer, maintain complete control over your content. You are responsible for managing security requirements for your content, including which content you choose to store on AWS, which AWS services you use, and who has access to that content. You also control how access rights are granted, managed, and revoked."*
+
+AWS is responsible for security of the cloud.
+
+### User Permissions and Access
+__AWS Identity and Access Management__ (IAM) - enables you to manage access to AWS services and resources securely.   
+* __IAM users, groups, and roles__- An __IAM user__ in AWS is an identity that represents a person or application interacting with AWS services. It has a name and credentials. By default, a new IAM user has no permissions. To enable actions like launching an EC2 instance or creating an S3 bucket, you must grant the necessary permissions. An __IAM group__ is a collection of IAM users. When you assign an IAM policy to a group, all users in the group are granted permissions specified by the policy. An __IAM role__ is an identity that you can assume to gain temporary access to permissions. Its the idea that you may need to do differnt stuff ie barista or worker at different times. 
+* __IAM policies__ -  is a document that allows or denies permissions to AWS services and resources. Follow the security principle of least privilege when granting permissions.   
+* __Multi-factor authentication__ - provides an extra layer of security for your AWS account.
+
+Best practice:
+
+Do not use the root user for everyday tasks. 
+
+Instead, use the root user to create your first IAM user and assign it permissions to create other users.
+
+Then, continue to create other IAM users, and access those identities for performing regular tasks throughout AWS. Only use the root user when you need to perform a limited number of tasks that are only available to the root user. Examples of these tasks include changing your root user email address and changing your AWS support plan. For more information, see “Tasks that require root user credentials” in the AWS Account Management Reference Guide.
+
+### AWS Organizations 
+You can use __AWS Organizations__ to consolidate and manage multiple AWS accounts within a central location.
+When you create an organization, AWS Organizations automatically creates a __root__, which is the parent container for all the accounts in your organization. 
+
+In AWS Organizations, you can group accounts into __organizational units (OUs)__ to manage accounts with similar business or security needs. Applying a policy to an OU automatically grants the specified permissions to all accounts within that OU.
+
+This approach helps isolate workloads with specific security requirements. For example, accounts needing regulatory compliance can be placed in one OU with a policy that restricts access to non-compliant AWS services.
+
+### Compliance
+__AWS Artifact__ is a service that provides on-demand access to AWS security and compliance reports and select online agreements. 
+* __AWS Artifact Agreements__ - manage compliance agreements across accounts, addressing regulatory needs like HIPAA.
+* __AWS Artifact Reports__ - provide up-to-date compliance reports, verifying AWS's security standards and helping teams understand regulatory responsibilities.
+
+### Denial-of-service Attacks (DDoS Attacks)
+The objective of a DDOS attack is to overwelm the application so that it shuts down. 
+__AWS Shield__ is a service that protects applications against DDoS attacks. AWS Shield provides two levels of protection: Standard and Advanced.
+__AWS Shield Standard__ automatically protects all AWS customers at no cost.
+__AWS Shield Advanced__ is a paid service that provides detailed attack diagnostics and the ability to detect and mitigate sophisticated DDoS attacks. 
+
+### Additional Security Services
+__AWS KMS__ enables encryption using cryptographic keys with customizable access control, ensuring keys remain within AWS KMS.
+__AWS WAF__ is a web application firewall that lets you monitor network requests that come into your web applications. 
+__Amazon Inspector__ Automated security asseessments. It checks applications for security vulnerabilities and deviations from security best practices.
+__Amazon GuardDuty__ detects threats by monitoring network activity and account behavior.
