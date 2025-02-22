@@ -25,7 +25,7 @@ I was told to do these course
 They say it will take 6hrs... I'll let you know
 
 ## I Finished (Thoughts)
-![Quiz Results](/assets/img/Amazon Cloud Practioners Essentials final assessment results.png_)
+![Quiz Results](/assets/img/Certificate of completion.png)
 Okay so it took me 7-8 hours. But I was writing notes (this). Alot of it yes was AWS/Amazon propganda but I did get e much better understanding of what AWS is. Perhaps Ill go for the Cloud Practitioner exam one of these days. Um... not a waste of time I Hope.
 
 # Below are the notes
