@@ -1,4 +1,13 @@
-
+---
+layout: post
+title: AWS Fundamentals, Start of my cloud journey
+subtitle: Notes from the AWS Cloud Practitioners Essentials course
+thumbnail-img: /assets/img/AWS-Logo.png
+tags: [AWS, AWS Free Tier, AWS Cloud Practitioner Essentials, AWS Management Console Basics, Amazon EC2, EC2 Instance Types, EC2 Auto Scaling, Lambda (Serverless Functions), AWS Lambda, Amazon S3, S3 Storage Classes, Amazon VPC, VPC Subnets, Networking, IAM (Identity and Access Management), Cloud Computing, Client-Server Model, Multitenancy, Vertical Scaling, General Purpose Instances, Compute Optimized Instances, Memory Optimized Instances, Accelerated Computing Instances, Storage Optimized Instances, On-Demand Instances, Reserved Instances, EC2 Instance Savings Plans, Spot Instances, Dedicated Hosts, Elastic Load Balancing (ELB), Amazon SQS, Amazon SNS, Amazon ECS, Amazon EKS, AWS Fargate, AWS Regions, Availability Zones (AZ), Edge Locations, Amazon CloudFront, AWS Outposts, AWS Management Console, AWS CLI, AWS SDKs, AWS Elastic Beanstalk, AWS CloudFormation, Internet Gateway (IGW), Virtual Private Gateway, AWS Direct Connect, Network ACL, Security Group, Public Subnets, Private Subnets, Amazon Route 53, DNS (Domain Name System), Instance Store Volumes, Amazon EBS, EBS Snapshots, Amazon EFS, Amazon RDS, Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, Microsoft SQL Server, Amazon DynamoDB, Amazon Redshift, AWS Database Migration Service (AWS DMS), Amazon DocumentDB, Amazon Neptune, Amazon QLDB, Amazon Managed Blockchain, Amazon ElastiCache, Amazon DynamoDB Accelerator (DAX), AWS Shared Responsibility Model, IAM Users, Groups, and Roles, IAM Policies, Multi-Factor Authentication (MFA), AWS Organizations, Organizational Units (OU), AWS Artifact, AWS Shield (Standard and Advanced), AWS KMS, AWS WAF, Amazon Inspector, Amazon GuardDuty, Amazon CloudWatch, CloudWatch Alarms, AWS CloudTrail, CloudTrail Insights, AWS Trusted Advisor, AWS Marketplace, AWS Cloud Adoption Framework (AWS CAF), Business Perspective, People Perspective, Governance Perspective, Platform Perspective, Security Perspective, Operations Perspective, Migration Strategies (Rehost, Replatform, Refactor, Repurchase, Retain, Retire), AWS Snow Family, AWS Snowcone, AWS Snowball, Snowball Edge Storage Optimized, Snowball Edge Compute Optimized, AWS Snowmobile, Serverless Applications, Artificial Intelligence, Machine Learning, Amazon SageMaker, AWS Well-Architected Framework, Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability]
+comments: true
+mathjax: true
+author: Alejandro Fluitt Martinez
+---
 
 
 
@@ -14,6 +23,12 @@ I was told to do these course
 
 ## Cloud Practitiioner Essentials
 They say it will take 6hrs... I'll let you know
+
+## I Finished (Thoughts)
+![Quiz Results](/assets/img/Amazon Cloud Practioners Essentials final assessment results.png_)
+Okay so it took me 7-8 hours. But I was writing notes (this). Alot of it yes was AWS/Amazon propganda but I did get e much better understanding of what AWS is. Perhaps Ill go for the Cloud Practitioner exam one of these days. Um... not a waste of time I Hope.
+
+# Below are the notes
 
 ### Intro video
 AWS service offerings
@@ -279,3 +294,68 @@ __AWS KMS__ enables encryption using cryptographic keys with customizable access
 __AWS WAF__ is a web application firewall that lets you monitor network requests that come into your web applications. 
 __Amazon Inspector__ Automated security asseessments. It checks applications for security vulnerabilities and deviations from security best practices.
 __Amazon GuardDuty__ detects threats by monitoring network activity and account behavior.
+
+### Monitoring
+__Monitoring:__ Observing systems, collecting metrics, and then using data to make decisions
+__Amazon CloudWatch__ is a web service that enables you to monitor and manage various __metrics__ (variables tied to your resources) and configure alarm actions based on data from those metrics.
+With CloudWatch, you can create __alarms__ that automatically perform actions if the value of your metric has gone above or below a predefined threshold. 
+
+Reduce __mean time to resolution MTTR__ and __improve Total Cost of Ownership TCO__
+![Cloudwatch Dashboard](/assets/img/Cloudwatch Dashboard.png)
+
+### AWS CloudTrail 
+__AWS CloudTrail__ logs API calls, tracking caller identity, time, and source IP for auditing and security.
+* Track user activities and API requests throughout your AWS infrastructure
+* Filter logs to assist with operational analysis and troubleshooting
+Within CloudTrail, you can also enable __CloudTrail Insights__. This optional feature allows CloudTrail to automatically detect unusual API activities in your AWS account. 
+
+### AWS Trusted Advisor
+__AWS Trusted Advisor__ is a web service that inspects your AWS environment and provides real-time recommendations in accordance with AWS best practices. The inspection includes security checks, such as Amazon S3 buckets with open access permissions.
+Comparing your infrastructure to AWS best practices in five categories
+
+### Pricing
+#### It is Amazon propaganda so im skipping
+__AWS Marketplace__ Has thousands of softwares you can implent for a price. Reduces the cost of ownership 
+
+![AWS Marketplace options](/assets/img/AWS Marketplace options.png)
+
+### AWS Cloud Adoption Framwork (AWS CAF)
+__The AWS Cloud Adoption Framework (AWS CAF)__ organizes guidance into six Perspectives: Business, People, Governance (focusing on business capabilities) and Platform, Security, Operations (focusing on technical capabilities).
+* __Business Perspective__ - ensures IT aligns with business needs and investments contribute to key business results. It builds a cloud adoption business case, aligning strategies and goals, with roles including business managers, finance managers, budget owners, and strategy stakeholders.
+* __People Perspective__ - develops a change management strategy for cloud adoption by evaluating organizational roles, skills, and processes. It identifies gaps to prioritize training and staffing, involving roles like human resources, staffing, and people managers.
+* __Governance Perspective__ - aligns IT strategy with business goals to maximize value and minimize risks. It updates staff skills and processes for cloud governance, managing cloud investments to measure outcomes, involving roles like CIOs, program managers, enterprise architects, business analysts, and portfolio managers.
+* __Platform Perspective__ - provides principles for cloud solutions and migrating on-premises workloads. It uses architectural models to define and communicate IT systems and their relationships Key roles include CTOs, IT managers, and solutions architects.
+* __Security Perspective__ - ensures security objectives for visibility, auditability, control, and agility. It structures security control selection and implementation, involving roles like CISO, IT security managers, and IT security analysts.
+* __Operations Perspective__ - ensures IT workloads run and recover as agreed with business stakeholders. It defines operational procedures and aligns them with business needs, involving roles like IT operations managers and IT support managers.
+
+### Migration Strategies
+1. __Rehosting__ - or “lift-and-shift,” involves moving applications to the cloud without changes. It is commonly used in large legacy migrations to scale quickly and meet business needs.
+2. __Replatforming__ - or “lift, tinker, and shift,” makes minor cloud optimizations for tangible benefits without changing the application’s core architecture.
+3. __Refactoring/re-architecting__ - or re-architecting, involves redesigning an application using cloud-native features to improve features, scale, or performance, driven by strong business needs.
+4. __Repurchasing__ - involves switching from a traditional license to a software-as-a-service (SaaS) model, such as migrating from an on-premises CRM system to Salesforce.com.
+5. __Retaining__ - involves keeping critical applications in their current environment, either because they require significant refactoring or because migration can be postponed.
+6. __Retiring__ - Found that as much as 10-20% of application portfolios arent even being used or already updated
+
+### AWS Snow Family
+The AWS Snow Family(opens in a new tab) is a collection of physical devices that help to physically transport up to exabytes of data into and out of AWS. 
+
+AWS Snow Family is composed of 
+* __AWS Snowcone__ - is a small, rugged, and secure edge computing and data transfer device. 
+* __AWS Snowball__ - __Snowball Edge Storage Optimized__ is ideal for large-scale data migrations and local computing with 80 TB HDD storage, 1 TB SSD, 40 vCPUs, and 80 GiB memory. __Snowball Edge Compute Optimized__ is designed for machine learning and video analysis, featuring 80 TB HDD, 28 TB NVMe SSD, 104 vCPUs, 416 GiB memory, and an optional NVIDIA Tesla V100 GPU.
+* __AWS Snowmobile__ - an exabyte-scale data transfer service that moves up to 100 petabytes of data per Snowmobile, which is a 45-foot ruggedized shipping container pulled by a semi-trailer truck.
+
+### Innovations with AWS
+* __Serverless applications__ - Serverless in AWS means running applications without managing servers, with AWS handling fault tolerance and availability. __AWS Lambda__ enables serverless applications by triggering functions to run code, allowing developers to focus on their product instead of server management.
+* __Artificial Intelligence__ - AWS offers a variety fo stuff
+* __Machine Learning__ - __Amazon SageMaker__ simplifies traditional ML development by enabling quick building, training, and deployment of ML models. It allows data analysis, problem-solving, and predictive analytics without the complexity and cost of traditional methods.
+
+__Amazon Q Developer__ - codes along with you, pretty much it... for now
+
+### Well-Architected Framework
+The Well-Architected Framework is based on six pillars: 
+* Operational excellence
+* Security
+* Reliability
+* Performance efficiency
+* Cost optimization
+* Sustainability
