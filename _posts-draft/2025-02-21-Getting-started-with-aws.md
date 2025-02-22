@@ -149,4 +149,88 @@ __AWS CloudFormation__ Not restricted to EC2, it lets you build and manage infra
 
 ### Connectivity to AWS
 __VPC__ - Private network in AWS, allows you to have your own private ip adress. They must be placed into differnt __Subnets__ 
+__Internet Gatway__ (IGW) is a doorway that allows Public traffic into your VPC.
+__Virtual Private Gateway__ allows you to create a VPN connection with a private network to your VPC. 
+__AWS Direct Connect__ completely private dedicated fiber connection from your network to your VPC. Private Gatway VPN is still suseptible to attacks.
 
+### Subents and Network Access Control Lists
+_NETWORK HARDENING_
+__Network access control list__ (Network ACL) Checks packets permissions based on who its sent from or what its trying to do. By default, your account’s default network ACL allows all inbound and outbound traffic, but you can modify it by adding your own rules. 
+__Security Group__ Every EC2 comes with a Security Group already assigned, I think for the Network ACL. It is modifiable. It only checks if the sender is on the approved list. By default, security groups deny all inbound traffic, but you can add custom rules to fit your operational and security needs.
+__The difference between Security Group and Network ACL__ The security group is _stateful_, it has a memory of who is allowed in and it lets every packet return, where as the Network ACL is _stateless_ means it tracks everysing packet going in or out.
+__Public subnets__ contain resources that need to be accessible by the public, such as an online store’s website.
+__Private subnets__ contain resources that should be accessible only through your private network, such as a database that contains customers’ personal information and order histories. 
+
+### Global Networking
+__Amazon Route 53__ Is AWS Domain name service
+__DNS__ Translation service that translates Domain names into IP Adresses. DNS is the phone book of the internet.
+* Latency-based routing
+* Geolocation DNS
+* Geoproximity routing
+* Weighted round robin
+You can use route 53 to register domain names.
+
+__Amazon Cloud Front__ Content delivery network (CDN): A network that delivers edge content to users based on their geographic location
+ 
+### Instance Stores and Amazon Elastic Block Store (Amazon EBS)
+__block level storage__ a place where files are stored, they are stored in blocks because that is more efficient when they need to be changed. Its essentially a hardrive. There are multiple types for EC2.
+__instance store volumes__ Physicaly attached to the AWS host. It provides temporary block-level storage for an Amazon EC2 instance and lasts as long as the instance is running. When the instance is terminated, all data in the instance store is lost. Useful for situation where its okay to lose the data of a file. Dont write important data into this, that needs persistance.
+__Amazon Elastic Block Store__ (EBS) Virtual Hardrives called __EBS Volumes__ They act like and instance store volume but its digital and persists. EBS allows you to take __Snapshots__: Incremental Backups. Only data that has changed since the most recent snapshot is backed up.
+
+### Amazon Simple Storage Service (Amazon S3)
+In __object storage__, each object consists of data, metadata, and a key. Everytime there is a change the entire data must be reuploaded.
+__Amazon Simple Storage Service__ (Amazon S3) is a service that provides object-level storage. Amazon S3 stores data as objects in buckets. You can upload any type of file to Amazon S3, The maximum file size for an object in Amazon S3 is 5 TB. When you upload a file to Amazon S3, you can set permissions to control visibility and access to it.
+    __Amazon S3 storage classes__
+* __S3 Standard__ - designed for frequently accessed data, stores data in a minimum of three AZs
+* __S3 Standard-Infrequent Access__(S3 Standard-IA) -  Ideal for infrequently accessed data. Similar to standard but has lower storage price and higher retrieval price.
+* __S3 One Zone-Infrequent Access__ (S3 One Zone-IA) - Stores data in a single AZ. Has low storage price. Use if you can easily reproduce your data in the event of an AZ failure
+* __S3 Intelligent Tiering__ - Ideal for data with unknown or changing access patterns. Requires a small monthly monitoring fee.
+* __S3 Glacier Instant Retrieval__ - Works well for archived data that requires immediate access. Can retrieve objects within a few milliseconds.
+* __S3 Glacier Flexible Retrieval__ - low cost storage designed for data archiving, able to retrieve objects with a few minutes to hours.
+* __Glacier deep archive__ - Lowest cost for archiving, retrieval -12 hours
+* __S3 Outposts__ - Creates S3 buckets on Amazon S3 Outposts. Makes it easier to retrieve, store, and access data on AWS Outposts
+
+### Amazon Elastic File System (EFS)
+__File storage__ allows multiple clients to access data in shared file folders using file paths. It uses block storage with a local file system for organization and is ideal for scenarios where many services need simultaneous data access.
+
+__Amazon Elastic File System (Amazon EFS)__ is a scalable Linux file storage system that automatically grows and shrinks as files are added or removed. It can scale to petabytes without disrupting applications. It stores data across __multiple__ AZs.
+
+*EBS does not scale, EFS does.*
+
+### Amazon Relational Database Service (Amazon RDS)
+__Relation Database__ stores data in a structured way that relates different pieces of data to each other. They use __SQL__ to store and query data consistently and scalably.
+__Amazon Relational Database Service__ (Amazon RDS) - is a service that enables you to run relational databases in the AWS Cloud.
+Amazon RDS is available on six database engines
+* Amazon Aurora *It is up to five times faster than standard MySQL databases and up to three times faster than standard PostgreSQL databases.*
+* PostgreSQL
+* MySQL
+* MariaDB
+* Oracle Database
+* Microsoft SQL Server
+
+### Amazon DynamoDP
+Serverless Database or __nonrelational database__. You create __Tables__ where you can store items that have attributes. Uses rigid schema to store data. So dont use if that shi changes. Quick Response time. Highly scalable.
+
+### Amazon Redshift
+__Amazon Redshift__ is a data warehousing service that you can use for big data analytics. It offers the ability to collect data from many sources and helps you to understand relationships and trends across your data. Used for past data.
+
+### AWS Database Migration ervice (AWS DMS)
+__AWS Database Migration Service__(AWS DMS) allows you to migrate relational and nonrelational databases between a source and a target database, which can be of the same or different types.
+During migration, the source database stays operational, minimizing downtime. For example, you can migrate a MySQL database from an on-premises server or Amazon EC2 instance to an Amazon Aurora database using AWS DMS.
+Also used for:
+* Development and test database migrations
+* Database Consolidation
+* Continuous replication
+
+### Additional Database Services
+* __Amazon Document DB__ a document database service that supports MongoDB workloads.
+* __Amazon Neptune__ a graph database service
+* __Amazon Quantum Ledger Database (Amazon QLDB)__ a ledger database service. 
+* __Amazon Managed Blockchain__ a service that you can use to create and manage blockchain networks with open-source frameworks. 
+* __Amazon ElastiCache__ a service that adds caching layers on top of your databases to help improve the read times of common requests. Comes in Redis and Memcached
+* __Amazon DynamoDB Accelerator__ an in-memory cache for DynamoDB.
+
+*Blockchain is a distributed ledger system that lets multiple parties run transactions and share data without a central authority.*
+
+## AWS Security
+![AWS Shared Security Model](/assets/img/AWS Shared Security Model.png)
