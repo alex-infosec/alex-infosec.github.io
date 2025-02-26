@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Threat Hunting: Key Insights from the Blue Team Meeting"
 subtitle: "Intro to Linux Threat Hunting with Alex Christy"
-thumbnail-img: ./assets/img/Finding-Malicious-Users.png
+thumbnail-img: assets/img/Finding-Malicious_Users.png
 tags: [Cybersecurity, Blue Team, Threat Hunting, Linux]
 comments: true
 mathjax: false
