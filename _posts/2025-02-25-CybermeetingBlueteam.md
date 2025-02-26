@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Linux Threat Hunting: Key Insights from the Blue Team Meeting"
+subtitle: "Intro to Linux Threat Hunting with Alex Christy"
+thumbnail-img: ./assets/img/Finding-Malicious-Users.png
+tags: [Cybersecurity, Blue Team, Threat Hunting, Linux]
+comments: true
+mathjax: false
+author: Alex Fluitt Martinez
+---
+
 # February 25th notes from Blue team meeting
 
 ## Intro to Linux Threat Hunting 
@@ -81,6 +92,10 @@ https://www.revshells.com/
 3. Red: Create a listener on your machine (new terminal)
 `nc -lvnp {YOUR_REVERSE_SHELL_PORT}`
 4.Red: Execute reverse shell command
+5. Blue: Hunt for reverse shell process
+`sudo ps -auxff | grep -v grep | grep -C 2 bash`
+6. Blue: Kill reverse shell process
+`sudo kill -9 {PID}`
 
 ### Notes (I noticed)
 `grep -C 2 ...``
