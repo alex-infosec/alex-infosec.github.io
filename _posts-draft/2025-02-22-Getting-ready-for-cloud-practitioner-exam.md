@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Pico Cybersecurity Primer"
+subtitle: "Notes and First Impressions from the CTF Experience"
+thumbnail-img: ./assets/img/ThePicoPrimer.png
+tags: [CTF, Cybersecurity, TRX CTF 2025, Linux Threat Hunting, PicoCTF]
+comments: true
+mathjax: false
+author: Alex Fluitt Martinez
+---
 
 # TRX CTF 2025
 Fuck it were trying a CFT, yes I could finish that AWS certification, but ugh, not feeling it right now. I want to dive into cybersecurity nose, head, eyes open, first... I do not think Im going to finish 
@@ -183,3 +193,51 @@ Units are in 512-byte sectors
 length of the partition is 202752
 boom got the flag
 
+### Packet Analysis
+Requires the use of GUI took 'Wireshark'
+__Downloaded wireshark__
+
+#### Wireshark
+1. Open Wireshark on your computer.
+2. Click on File in the top menu.
+3. Select Open... and navigate to the location of your packet capture file (usually has a .pcap or .pcapng extension).
+4. Click Open, and the packets should load into Wireshark for analysis.
+
+To filter out ARP messages, add !`arp `to your filter in Wireshark:
+*'ARP' stands for Address Resolution Protocol and these messages are common in every network capture as it is needed to connect a hardware address to an IP address.*
+*The TCP handshake, also known as the 'three-way handshake' can be identified by the flags in the packets. First 'SYN' from host A, the 'SYN, ACK' from host B, then finally, 'ACK' from host A. 'SYN' stands for synchronization, and 'ACK' stands for acknowledgement. Both parties synchronize and acknowledge.*
+Were looking for the [PSH] flag set because it means there data for the application in the packet
+
+#### Network Layers
+1. __Application layer__: Responsible for handling data traffic between applications. HTTP belongs to this layer; HTTP protocol is commonly used to obtain Web Pages.
+2. __Transport layer:__ Responsible for providing several connections on the same host, that means that you can have several applications on the same device and each of them can have a different connection even if it is just one device. It also defines functionalities for reliable transport. Two protocols are used on this layer. TCP (Transport Control Protocol). You use this protocol when you need to have reliable transport, this makes sure that if a piece of information was missing while being transfertransferred it is resent. But you want faster transport that does not resend parts that were missing, UDP (User Datagram Protocol) is used. 
+3. __Network layer:__ It provides devices with an address in the network called the IP (Internet Protocol) address, and routes information through different routers. 
+4. __Data link layer:__ It provides communication between devices that are connected directly. Examples of protocols in the data link layer are Ethernet or WiFi.
+5. __Physical layer:__ This handles electrical pulses on the wire that represent bits.
+
+## Programmin in python
+For binary exploitation, there is a very useful library called pwntools:
+http://docs.pwntools.com/en/stable
+Keep this library in mind as an important part of python for exploitation. 
+
+## Network
+A network is made up of several computers connected. They can be connected through different protocols. A __Protocol__ is a set of rules that allow two computers in a network to send and receive information. 
+*Wireshark is a "sniffer"*
+
+I wasnt able to use Wireshark as they had described because I use a mac and they said i would have to install some chmod bs
+
+## Infiltrating in a database
+### Basic SQL injection
+The objective of the basic SQL injection we are learning is to try to inject an "or" expression that is always true. In that way the server code constructs a query using the user input that deceives the program into it returning the whole table.
+`"SELECT * FROM user where name='".$name.""' and password='".$password.""';"`
+Doesnt really work in modern applications
+
+### Blind SQL injection
+Internally, the injection deceives the application into returning records, but the application did not show us those records. That’s why it is called Blind SQL injection. We can inject SQL, but we cannot see the result!
+
+### Stack Overflow attack In the C program, there's a function called win() that should never be called.
+The vuln() function takes user input using gets(), which is dangerous because it doesn't check the size of the input.
+If you input too many characters, you can overflow the memory and accidentally (or intentionally) make the program run the win() function.
+This is called a stack overflow attack because you're overflowing the memory (stack) to change the flow of the program.
+
+Boom they just had a long section on assembly that I didnt want to do 
