@@ -79,14 +79,14 @@ Neee a path to get from the current security to the end goal, will take time, mo
 Many networks are relatively open on the inside, once youre through the Firewall
 Zero trust - a holistic approach to network security, covers every device, process, and Personnel
 __Planes of operation__ Split the network into funcitonal planes, applies to physical, virtual, and cloud components
-* Data plane
+* Data plane 
 - Process the frames, packets, and network data
 - Processing, forwarding, trunking, encrypting, NAT
 
 * Control Plane
 - Manages the actions of the data plane
 - Define policies and rules
-- Determine how packets should be forwarded
+- Determine how packets should be forwarded 
 
 Adaptive identity
 - consider the source and the requested resources
@@ -99,3 +99,94 @@ Policy driven access control
 Security Zones
 - security is more than a one-to-one relationship
 - Where are you coming from and where are you going
+
+*Upon further thinking I realized the more efficient way to study for SEC+ would be to frontload the information, getting a mental "Lay of the land" so to speak, and coming back later to make the pathways and road. This means my notes will become more sparse*
+
+Policy Enforcement Piont (PEP)
+- the gatekeeper, all traffic going through the network has to go through the pep to see if the traffic is allowed. Its usually multiple devices working together.
+
+Policy Decision Point 
+- dont know the difference tbh
+- **Policy Engine**  The final Judge. Grant deny or revoke.
+- **Policy Administrator** Complex Judge, communicatetes with PEP 
+
+Honey Pot
+- attrack bad guys to see what their strats are
+- honey nets, larger deception network
+- honey files, fake information that alert is sent if file is accessed
+- honey token, traceable data if its stolen to see where it cam fom
+
+### Managerial Change
+When a system updates is one of the most common risks in the enterprise. Need policy on changes
+Change approval process
+- ownership, this ones weird but its the owner of the application and theyre usually not the ones doing the changing just verifying it happened
+- Stakeholders, impacted by the change 
+- Impact analysis, usually a risk value
+- test results, like with a sandbox testing environment
+- **Backout plan**  Way to return to original state if something goes wrong
+- Maintenance Window
+- Apart of Standard Operating Procedures, should be well documented
+
+From the perspective of the technicial implementation of change
+- Allow list/ deny list
+- Restricted Activities "Scope of change"
+- Downtime, want to reduce this so usually lose 2 different versions to try and make changes
+- Restarts
+- Legacy applications (here before you arrived might be there when u leave) u become the support. U must become the expert.
+- **Dependencies** can complicate things. Must complete A for B.
+- Documentation is pivotal in doing this
+- Version control, tracking the changes to a file over time
+
+## 1.4
+### Public Key Infrastructure (PKI)
+**Symmetric Encryption** Encrypt and decrypt with the same key. Single shared key
+**Asymmetric engryption** Two or more mathmatically related keys. Private and public key. 
+**Key excrow** 3rd party key or personal key holder, like Hagrid from Harry Potter.
+(EFS) Windows Encrypting File Systems
+Mac Linux use 3rd party but sometimes we need to encrypt all stored data at rest.
+Database encryption
+* Transparent encryption - encrypts all database information with a symmetric key
+* Record-level Encryption - encrypts individula columns with separate symmetric keys.
+
+Transport Encryption
+* Data across the network
+* VPN Virtual Private Network is an encrypted tunnel
+
+Key stretching due to increased processor strength. Hashing the hash of a hash of a password lol.
+
+**Key Exchange**
+
+In band key exchange, on the network protects teh key with additional encryption, use asymmetric encryption to deliver a symmetric key. Called a session key
+
+**Trusted Platform Module (TPM)**
+
+Cryptograhic hardware on a device. Random number generator key generator. Persistent memory , burned in during manufacturing
+
+**Hardware Security Module**
+
+TPM but for data centers. Used in large environments. Securely stores thousands of cryptographic keys.
+Designed fro very fast cryptographic functions.
+
+There is a Key Management System (similar to a wireshark just an applciation yk)
+
+**Secure Enclave**, a separate security processor built into the phone laptop etc. Given different names
+
+* Obfuscate - making somethin unclear
+* Steganography - hiding data in an image. The image is called the "Coverimage"
+* Tokenization - Paying with a credit card
+* Data Masking -  ************345
+* Hash - only the fingerprint just to make sure its not changed
+* Collision - when hashing two different inputs makes the same hash, Do not use MD5 (old hashing algo) as a result of that 
+* Use hashing to verify downloads
+* Salted Hash, randoom data added to a password when hashing.
+* Rainbow tables wont work with salted hashes for common hashes
+* Blokcchain - a distributed ledger, keeps track of things needed to be monitored. Bitcoin is common. Due to blockchain it keeps people from going in and messing it up since its kept alive by adding blocks so u cant fake the blocks because theyre built on top of each other.
+
+### Digital Certificates
+
+Public Key Certificate - CA signs it with the person digital signature
+Web of trust - use others for additional trust
+Websites use a X.50- the standardized format of a digital certificate
+Wildcard certificates: Subject ALternative Name (SAN) its an extention to the X.509 certificate allows a certificate to support many different domain names
+Key Revolcation List (CRL) also maintained by the Certificate Authority
+OCSP - online certificate status protocal modernish website ca approval being stapled and that staple is verified by CA
